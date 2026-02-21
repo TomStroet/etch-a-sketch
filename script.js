@@ -1,19 +1,28 @@
 
 const container = document.querySelector('.container')
 
-console.log(container.offsetWidth)
-let gridSize = 16;
-let gridXaxis = Math.sqrt(gridSize)
+drawGrid(container)
 
-let cellWidth = String(container.offsetWidth / Math.sqrt(gridSize)) + 'px'
+/**
+ * Clears the existing grid and draws a new one in the available space of the container.
+ * @param {HTMLDivElement} container - The container element for the grid
+ * @param {number} gridWidth - The width of the grid.
+ */
+function drawGrid(container, gridWidth = 16) {
+    while (container.hasChildNodes()) {
+        container.removeChild(container.firstChild)
+    }
 
+    const cellWidth = String(container.offsetWidth / gridWidth) + 'px'
+    const gridSize = Math.pow(gridWidth, 2)
+    for (let i = 0; i < gridSize; i++) {
+        const cell = document.createElement('div')
+        cell.style.width = cellWidth
+        cell.classList.add('cell')
+        container.appendChild(cell)
+    }
+} 
 
-for (let i = 0; i < gridSize; i++) {
-    const cell = document.createElement('div')
-    cell.classList.add('cell')
-    cell.style.width = cellWidth
-    container.appendChild(cell)
-}
 
 const cells = container.querySelectorAll('.cell');
 cells.forEach((cell) => {
@@ -27,7 +36,7 @@ cells.forEach((cell) => {
 // Under construction
 
     const setGridBtn = document.querySelector('.setGrid')
-    setGridBtn.addEventListener('click', setGrid)
+    setGridBtn.addEventListener('click', changeGrid)
 
 
 
@@ -44,11 +53,3 @@ cells.forEach((cell) => {
         console.log(typeof cells)
     }
 
-    function setGrid(gridWidth, container) {
-        for (let i = 0; i < gridWidth^2; i++) {
-        const cell = document.createElement('div')
-        cell.classList.add('cell')
-        cell.style.width = cellWidth
-        container.appendChild(cell)
-        }
-    } 

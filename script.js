@@ -22,7 +22,6 @@ function drawGrid(container, gridWidth = 16) {
         cell.style.width = cellWidth
         cell.style.opacity = 0;
         cell.addEventListener('mouseenter', () => {
-            // console.log(typeof(cell.style.opacity))
             if (cell.style.opacity < 0.9) {
                 cell.style.opacity = Number(cell.style.opacity) + 0.1
             }

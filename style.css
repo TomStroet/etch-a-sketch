@@ -17,6 +17,7 @@ body {
     outline-width: 5px;
     outline-color: darkgrey;
 }
+
 .cell {
     box-sizing: border-box;
     border-style: solid;

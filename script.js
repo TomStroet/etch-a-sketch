@@ -1,8 +1,8 @@
-
 const container = document.querySelector('.container')
 const setGridBtn = document.querySelector('.setGrid')
 setGridBtn.addEventListener('click', changeGrid)
 drawGrid(container)
+
 
 /**
  * Clears the existing grid and draws a new one in the available space of the container.
@@ -18,12 +18,15 @@ function drawGrid(container, gridWidth = 16) {
     const gridSize = Math.pow(gridWidth, 2)
     for (let i = 0; i < gridSize; i++) {
         const cell = document.createElement('div')
-        cell.style.width = cellWidth
         cell.classList.add('cell')
+        cell.style.width = cellWidth
+        cell.style.opacity = 0;
         cell.addEventListener('mouseenter', () => {
-            cell.style.backgroundColor = 'grey'
-        });
-
+            // console.log(typeof(cell.style.opacity))
+            if (cell.style.opacity < 0.9) {
+                cell.style.opacity = Number(cell.style.opacity) + 0.1
+            }
+        })
         container.appendChild(cell)
     }
 } 

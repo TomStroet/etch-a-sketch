@@ -1,5 +1,5 @@
 body {
-    background-color: grey;
+    background-color: lightgray;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,6 +20,7 @@ body {
     box-sizing: border-box;
     border-style: solid;
     border-width: 1px;
+    border-color:whitesmoke;
     width: 200px;
     aspect-ratio: 1 / 1;
     background-color: white;
@@ -29,25 +30,13 @@ body {
     margin: 20px;
 }
 
-button {
-    width: 120px;
+button.setGrid {
+    width: 150px;
     padding: 10px;
     border-radius: 15px;
     font-size: 20px;
     border-style: none;
-    background-color: grey;
-    /* border-style: solid; */
-}
-
-button.setGrid {
     color: white;
     background-color: blue;
     border-color: white;
-}
-
-button.reset {
-    color: blue;
-    width: 80px;
-    /* border-color: blue; */
-    /* background-color: white; */
 }
